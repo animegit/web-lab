@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Max of Three Numbers</title>
+</head>
+<body>
+    <form id="form">
+        <label for="a">A:</label>
+        <input type="number" name="a" id="a" required>
+        <br>
+        <label for="b">B:</label>
+        <input type="number" name="b" id="b" required>
+        <br>
+        <label for="c">C:</label>
+        <input type="number" name="c" id="c" required>
+        <br>
+        <button type="submit">Find Max</button>
+    </form>
+    <script>
+        function max(num1, num2) {
+            return num1 > num2 ? num1 : num2;
+        }
+
+        function maxThree(a, b, c) {
+            return max(a, max(b, c));
+        }
+
+        document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const a = parseFloat(document.querySelector("input[name='a']").value);
+            const b = parseFloat(document.querySelector("input[name='b']").value);
+            const c = parseFloat(document.querySelector("input[name='c']").value);
+            alert(maxThree(a, b, c));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Translate Text</title>
+</head>
+<body>
+    <label for="text">Enter text:</label>
+    <input type="text" id="text">
+    <button onclick="translateText()">Translate</button>
+    <p id="result"></p>
+
+    <script>
+        const lexicon = {
+            "merry": "god",
+            "christmas": "jul",
+            "and": "och",
+            "happy": "gott",
+            "new": "nytt",
+            "year": "år"
+        };
+
+        function translate(text) {
+            return text.split(' ').map(word => lexicon[word] || word).join(' ');
+        }
+
+        function translateText() {
+            const text = document.getElementById('text').value;
+            const result = translate(text);
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>

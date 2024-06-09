@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Find Longest Word</title>
+</head>
+<body>
+    <label for="words">Enter words separated by commas:</label>
+    <input type="text" id="words">
+    <button onclick="findLongest()">Find Longest Word</button>
+    <p id="result"></p>
+
+    <script>
+        function findLongestWord(words) {
+            return words.reduce((max, word) => Math.max(max, word.length), 0);
+        }
+
+        function findLongest() {
+            const words = document.getElementById('words').value.split(',');
+            const result = findLongestWord(words);
+            document.getElementById('result').textContent = `The length of the longest word is ${result}`;
+        }
+    </script>
+</body>
+</html>

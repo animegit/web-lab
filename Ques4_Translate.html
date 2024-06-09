@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Translate Text</title>
+</head>
+<body>
+    <label for="text">Enter text:</label>
+    <input type="text" id="text">
+    <button onclick="translateText()">Translate</button>
+    <p id="result"></p>
+    
+    <script>   
+    function translate(text) {
+        const consonants = 'bcdfghjklmnpqrstvwxyz';
+        let result = '';
+
+        for (let char of text) {
+            if (consonants.includes(char)) {
+                result += char + 'o' + char;
+            } else {
+                result += char;
+            }
+        }
+
+        return result;
+    }
+
+    function translateText() {
+        const textInput = document.getElementById('text');
+        const resultOutput = document.getElementById('result');
+        const text = textInput.value;
+        const translatedText = translate(text);
+        resultOutput.textContent = translatedText;
+    }
+
+    </script>
+</body>
+</html>

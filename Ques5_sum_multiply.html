@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sum and Product</title>
+</head>
+<body>
+    <label for="numbers">Enter numbers separated by commas:</label>
+    <input type="text" id="numbers">
+    <button onclick="displayResult('sum')">Sum</button>
+    <button onclick="displayResult('multiply')">Multiply</button>
+    <p id="result"></p>
+
+    <script>
+        const operate = (numbers, operation) => numbers.reduce((acc, num) => operation === 'sum' ? acc + num : acc * num, operation === 'sum' ? 0 : 1);
+
+        const displayResult = (operation) => {
+            const numbers = document.getElementById('numbers').value.split(',').map(Number);
+            const result = operate(numbers, operation);
+            document.getElementById('result').textContent = `${operation === 'sum' ? 'Sum' : 'Product'} is ${result}`;
+        };
+    </script>
+</body>
+</html>

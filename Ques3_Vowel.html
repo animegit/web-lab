@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Check Vowel</title>
+</head>
+<body>
+    <label for="char">Enter a character:</label>
+    <input type="text" id="char" maxlength="1">
+    <button onclick="checkVowel()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        
+        function checkVowel() {
+        const char = document.getElementById('char').value;
+        const isVowel = ['a', 'e', 'i', 'o', 'u'].includes(char);
+        const resultMessage = isVowel ? 'Yes' : 'No';
+        document.getElementById('result').textContent = resultMessage;
+    }
+
+    </script>
+</body>
+</html>
